@@ -18,39 +18,25 @@ int main(){
 	int response_par, response_impar;
 	while(response_par == 0 && response_impar == 0){
 
-		int valor = rand()%(size_par + size_impar);
+		int valor = rand()%(100);
 		printf("%d\n", valor);
 
 		if(valor % 2 == 0){
 			enqueue(fila_par, valor);
-			printf("colocando na fila par.\n");
 		}
 		else{
 			enqueue(fila_impar, valor);
-			printf("colocando na fila impar.\n");
 		}
 		response_par = is_full(fila_par);
 		response_impar = is_full(fila_impar);
 
 	};
-
-	//for(int i=0; i<size; i++){
-	//	enqueue(q, rand()%size);
-	//}
-
-	// colocar elemento na array
-	//enqueue(q, 0);
-	//enqueue(q, 1);
 	
-	//remove o primeiro item da lista caso não esteja vazia
-//	int elem = dequeue(q);
-//	printf("removi %d do array.", elem);
-//
-	printf("array par: ");
+	printf("Fila par:\n");
 	print_array(fila_par);
-	printf("array impar: ");
+	printf("\n");
+	printf("Fila impar:\n");
 	print_array(fila_impar);
-
 
 	return 0;
 }

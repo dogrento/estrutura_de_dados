@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// definir struct para fila
+// definindo struct para fila
+/*
+ * Atributos:
+ * 	int front: posição do primeiro elemento (referente a fila)
+ * 	int back: posição do último elemento
+ * 	int size: quantidades de elementos da fila
+ * 	int* array: ponteiro referende ao vetor que será alocado
+ * */
 typedef struct{
 	int front,
 	    back,
