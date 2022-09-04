@@ -7,6 +7,9 @@ Stack* create(int size){
 	//inicializando variavel peek para valor inicial
 	pilha->peek = 0;
 
+	//atribuindo valor para size
+	pilha->size = size;
+
 	// alocando memoria para array
 	pilha->array = (int*) malloc(size*sizeof(int));
 } 
@@ -23,13 +26,14 @@ void push(Stack* s, int element){
 		s->peek++;	
 	}
 	else
-		printf("stack overflow\n");
+		printf("função push: stack overflow\n");
 }
 
-int pop(Stack* s){
+int pop(Stack* s, int element){
 	if(!is_empty(s)){
 		s->peek--;
-
+		s->array[s->peek]=0;
+		printf("elemento %d removido\n", element);
 	}
 }
 
@@ -39,4 +43,15 @@ int is_full(Stack* s){
 
 int is_empty(Stack* s){
 	return (s->peek == 0);
+}
+
+int get_peek(Stack* s){
+	return(s->peek);
+}
+
+void get_elements(Stack* s){
+	printf("size: %d\n", s->size);
+	for(int i = 0; i<s->size;i++){
+		printf("position: %d, element: %d\n", i, s->array[i]);
+	}
 }
