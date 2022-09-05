@@ -1,7 +1,17 @@
 #include <stdlib.h>
 #include "../stack.h"
 
-void popula_pilhaPrincipal(Stack* pilhaPrincipal, Stack* pilhaAux);
+void popula_pilhaPrincipal(Stack* pilhaPrincipal, Stack* pilhaAux){
+
+    int peekValue=get_peek(pilhaAux);
+
+    while(!is_empty(pilhaAux)){
+
+        push(pilhaPrincipal, peekValue);
+        pop(pilhaAux);
+        peekValue=get_peek(pilhaAux);
+    }
+}
 
 void remove_par(Stack* pilhaPrincipal, Stack* pilhaAux){
 
@@ -24,17 +34,6 @@ void remove_par(Stack* pilhaPrincipal, Stack* pilhaAux){
 
 }
 
-void popula_pilhaPrincipal(Stack* pilhaPrincipal, Stack* pilhaAux){
-
-    int peekValue=get_peek(pilhaAux);
-
-    while(!is_empty(pilhaAux)){
-
-        push(pilhaPrincipal, peekValue);
-        pop(pilhaAux);
-        peekValue=get_peek(pilhaAux);
-    }
-}
 
 int main(){
     
@@ -50,7 +49,7 @@ int main(){
     get_elements(pilhaPrincipal);
     remove_par(pilhaPrincipal, pilhaAux);        
     get_elements(pilhaPrincipal);
-    
+
     destroy(pilhaPrincipal);
     destroy(pilhaAux);
 
