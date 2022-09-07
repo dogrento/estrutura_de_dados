@@ -1,5 +1,4 @@
 #include <time.h>
-
 #include "../linked_list.h"
 
 int is_in (List *l, int k){
@@ -10,6 +9,7 @@ int is_in (List *l, int k){
             break;
         }
     }
+    free(tmp);
     return 0;
 }
 
