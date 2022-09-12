@@ -6,6 +6,7 @@ typedef struct node{
 	struct node *next;
 }List;
 
+// Interface da lista encadeada
 List* create();
 List* insert_front(List* l, int element);
 List* remove_element(List* l, int element);
