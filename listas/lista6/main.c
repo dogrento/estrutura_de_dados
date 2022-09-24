@@ -10,7 +10,12 @@ int main(){
 
     print(lista);
 
-    remove_element(lista, 0);
+    // remove_element(lista, 0);
+
+    // print(lista);
+
+    lista = insert_back(lista, 37);
+    lista = insert_back(lista, 69);
     print(lista);
 
     destroy(lista);

@@ -28,6 +28,7 @@ List* insert_front(List* l, int element){
     // retornando a nova lista
     return node;
 }
+
 List* search_element(List* l, int element){
 
     // se lista não for null
