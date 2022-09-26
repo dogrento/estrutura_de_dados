@@ -1,10 +1,15 @@
 #include "linked_list.h"
 
+//ex2
 List* insert_back (List *l, int element){
 
     List* tmp = l;
     List* node = (List*) malloc(sizeof(List));
 
+    if(l == NULL){
+        return tmp;
+    }
+    
     while(tmp->next !=NULL){
         tmp = tmp->next;
     }
@@ -20,4 +25,22 @@ List* insert_back (List *l, int element){
     }
 
     return tmp;
+}
+
+// ex3
+List* create_circular (List *l){
+    List* tmp = l;
+
+    if(l == NULL){
+        return tmp;
+    }
+
+    while(tmp->next!=NULL){
+        tmp = tmp->next;
+    }
+
+    tmp->next = l;
+    l->prev = tmp;
+
+    return l;
 }

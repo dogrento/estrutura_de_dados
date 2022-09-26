@@ -17,3 +17,5 @@ void print(List* l);
 
 // ex2
 List* insert_back(List* l, int element);
+// ex3
+List* create_circular (List *l);

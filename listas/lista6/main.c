@@ -4,9 +4,10 @@ int main(){
 
     List* lista = create();
 
-    lista = insert_front(lista, 0);
-    lista = insert_front(lista, 2);
-    lista = insert_front(lista, 4);
+    
+    // lista = insert_front(lista, 0);
+    // lista = insert_front(lista, 2);
+    // lista = insert_front(lista, 4);
 
     print(lista);
 
@@ -16,6 +17,9 @@ int main(){
 
     lista = insert_back(lista, 37);
     lista = insert_back(lista, 69);
+    print(lista);
+
+    lista = create_circular (lista);
     print(lista);
 
     destroy(lista);
