@@ -4,6 +4,8 @@
 void bubble_sort (int *A, int n) {
   /*Terminar*/	
   int aux;
+  if(n==1)
+    return;
   // // ordenando utilizando funções fornecidas pelo utils.h
   // while(!check(A, n, TRUE)){
   //   for(int i=0; i<n; i++){

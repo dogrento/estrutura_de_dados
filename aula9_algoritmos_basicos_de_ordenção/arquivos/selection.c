@@ -4,6 +4,8 @@
 void selection_sort (int *A, int n) {
   /*Terminar*/	
   int aux, i, j;
+  if(n==1)
+    return;
   for(i=0; i<n-1;i++){
     for(j=i+1; j<n; j++){
       if(A[i]>A[j]){
