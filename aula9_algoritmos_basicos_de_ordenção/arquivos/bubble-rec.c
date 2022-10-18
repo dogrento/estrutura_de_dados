@@ -2,8 +2,22 @@
 
 /* */
 void bubble_sort_recursive (int *A, int n) {
-  /*Terminar*/	
-  
+  /*Terminar*/
+  if(n==1)
+    return;
+
+  int count = 0;	
+
+  for (int i = 0; i< n-1; i++){
+    if(A[i]>A[i+1]){
+      swap(A, i, i+1);
+      count++;
+    }
+  }
+  if(count == 0)
+    return;
+    
+  bubble_sort_recursive(A, n-1);
 }
 
 /* */
@@ -28,9 +42,9 @@ int main (int argc, char *argv[]) {
   }  
 
   start = clock();
-  print (A, n, "Input");
+  // print (A, n, "Input");
   bubble_sort_recursive (A, n);
-  print (A, n, "Sorted");
+  // print (A, n, "Sorted");
   end = clock();
   elapsed_time = (end - start)/(double)CLOCKS_PER_SEC;
   printf("Running time: %.2f\n", elapsed_time);
