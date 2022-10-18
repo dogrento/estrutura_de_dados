@@ -3,6 +3,16 @@
 /* */
 void selection_sort (int *A, int n) {
   /*Terminar*/	
+  int aux, i, j;
+  for(i=0; i<n-1;i++){
+    // printf("comparando A[%d] com :\n", i);
+    for(j=i+1; j<n; j++){
+      // printf("%d, \n", j);
+      if(A[i]>A[j]){
+        swap(A, i, j);
+      }
+    }
+  }
 }
 
 /* */
@@ -27,9 +37,9 @@ int main (int argc, char *argv[]) {
   }  
 
   start = clock();
-  print (A, n, "Input");
+  // print (A, n, "Input");
   selection_sort (A, n);
-  print (A, n, "Sorted");
+  // print (A, n, "Sorted");
   end = clock();
   elapsed_time = (end - start)/(double)CLOCKS_PER_SEC;
   printf("Running time: %.2f\n", elapsed_time);
