@@ -8,20 +8,13 @@ void selection_sort (int *A, int n) {
     return;
   for(i=0; i<n-1;i++){
     position = i;
-    // printf("comparando A[%d]=%d com...\n", i, A[i]);
-    // printf("procurando o menor valor...\n");
     for(j=i+1;j<n;j++){
-      // printf("A[%d]=%d\n", j, A[j]);
       if(A[position]>A[j]){
-        // printf("%d é maior que %d\n", A[position], A[j]);
         position = j;
-        // printf("atualizando position = %d\n", position);
       }
     }
     if(position!=i){
-      // printf("trocando de posição.\n");
       swap(A,position,i);
-      // print(A,n,"DEBUG");
     }
   }
 }
@@ -48,9 +41,9 @@ int main (int argc, char *argv[]) {
   }  
 
   start = clock();
-  // print (A, n, "Input");
+  print (A, n, "Input");
   selection_sort (A, n);
-  // print (A, n, "Sorted");
+  print (A, n, "Sorted");
   end = clock();
   elapsed_time = (end - start)/(double)CLOCKS_PER_SEC;
   printf("Running time: %.2f\n", elapsed_time);
