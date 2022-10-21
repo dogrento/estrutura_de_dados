@@ -3,6 +3,9 @@
 /* */
 void selection_sort_recursive (int *A, int n) {
   /*Terminar*/	
+  if(n==1)
+    return;
+  
 }
 
 /* */
