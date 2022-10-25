@@ -3,9 +3,43 @@
 /* */
 void selection_sort_recursive (int *A, int n) {
   /*Terminar*/	
-  if(n==1)
+  printf("\nEntrando na função!\n");
+  printf("n=%d\n", n);
+
+  if(n==1){
+    printf("n==1\n");
     return;
-  
+  }
+  selection_sort_recursive(A, n-1);
+  printf("n=%d\n", n);
+  int i=0; 
+  while(i<n){
+    printf("i:A[%d]=%d\n", i, A[i]);
+    i++;
+  }
+  // for(i=0; i<n;i++){
+  //   printf("i:A[%d]=%d\n", i, A[i]);
+  //   if(A[i])
+    // printf("position: %d\n", position);
+    // printf("A[%d]=%d\n", position, A[position]);
+
+    // if(A[i]<A[position]){
+    //   position = i;
+    // //   // printf("A[i] é menor que A[n-1]\n");
+    //   printf("%d < %d\n",A[i], A[position]);
+    //   printf("Atualizando: position -> %d\n", position);
+    // }
+    // if(position!=i){
+    //   swap(A,position,n-n);
+    //   printf("swapping?\n");
+    // }
+  // }
+  //     position=0;
+
+  // printf("A[n-1]=%d\n", A[n-1]);
+  // printf("------------Entrando no LOOP-------------\n");
+  // printf("min position -> %d\n", position);
+  // print(A, n, "DEBUG");
 }
 
 /* */
