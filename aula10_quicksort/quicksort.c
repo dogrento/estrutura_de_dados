@@ -17,11 +17,11 @@ int main(){
 	int e = 0;
 	int d = size-1;
 	int partition;
-	// printf("particionando...\n");
-	// partition = particione(lista, e, d);
 	quicksort(lista, e, d);
 	print(lista, size);    
 
+	free(lista);
+	
 	return 0;
 }
 
