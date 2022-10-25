@@ -5,6 +5,7 @@
 int particione(int A[], int e, int d);
 void print(int A[],int n);
 int *criar_lista(int size);
+void quicksort(int A[], int e, int d);
 
 int main(){
 	printf("seu merda.\n");
@@ -16,8 +17,9 @@ int main(){
 	int e = 0;
 	int d = size-1;
 	int partition;
-	printf("particionando...\n");
-	partition = particione(lista, e, d);
+	// printf("particionando...\n");
+	// partition = particione(lista, e, d);
+	quicksort(lista, e, d);
 	print(lista, size);    
 
 	return 0;
@@ -34,6 +36,15 @@ int *criar_lista(int size){
 	return lista;
 }
 
+void quicksort(int A[], int e, int d){
+	if(e<d){
+		int pivot = particione(A, e, d);
+		quicksort(A, e, pivot-1);
+		quicksort(A, pivot+1, d);
+	}
+}
+
+
 int particione(int A[], int e, int d){
 	// pivot recebe posição do fim da lista.
 	int pivot = d;
@@ -49,14 +60,14 @@ int particione(int A[], int e, int d){
 			// atualiza i para o prox elemento,
 			i = i+1;
 			// os indices não estiverem no mesmo lugar,
-			// if(i!=j){
+			if(i!=j){
 				// troca o elemento que está em i com a posição do j
 				// para que assim separe os elementos que são maiores que
 				// o pivot, fique a direita e os menores fiquem a esquerda.
 				aux = A[i];
 				A[i] = A[j];
 				A[j] = aux;
-			// }
+			}
 		}
 	}
 
