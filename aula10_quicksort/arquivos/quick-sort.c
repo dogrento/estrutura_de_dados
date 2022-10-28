@@ -1,5 +1,6 @@
 #include "utils.h"
 
+
 /* */
 int partition (int A[], int left, int right) {
   /*Terminar*/	
@@ -25,11 +26,31 @@ int partition (int A[], int left, int right) {
   return pivot;
 }
 
+int random_partition(int A[], int left, int right){
+  /*Terminar*/	
+  int pivot = rand()%right;
+  printf("rand_pivot: %d\n", pivot);
+  printf("A[pivot]: %d\n", A[pivot]);
+  printf("A[right]: %d\n", A[right]);
+
+  if(left <= pivot && pivot <= right && A[pivot] != A[right]){
+    swap(A, pivot, right);
+    printf("Trocando: A[%d]<-> A[%d]\n", A[pivot], A[right]);
+    print(A, right+1, "debug");
+
+  }
+  
+  return partition(A, left, right);
+}
+
 /* */
 void quick_sort (int *A, int left, int right) {
   /*Terminar*/	
   if(left<right){
-    int pivot = partition(A, left, right);
+    // int pivot = partition(A, left, right);
+    int pivot = random_partition(A, left, right);
+    printf("quick sort_pivot: %d\n", pivot);
+    print(A, right+1, "debug no quick sort");
     quick_sort(A, left, pivot-1);
     quick_sort(A, pivot + 1, right);
   }
@@ -53,16 +74,16 @@ int main (int argc, char *argv[]) {
   int *A = (int *)malloc(n * sizeof(int));
 
   for (i = 0; i < n; i++) {
-    // A[i] = rand() % (n+1); /*valores aleatórios*/
-    A[i] = i; /*ordem crescente*/
+    A[i] = rand() % (n+1); /*valores aleatórios*/
+    // A[i] = i; /*ordem crescente*/
     // A[i] = n-i; /*ordem descrente*/
     //A[i] = 0; /*iguais*/
   }  
 
   start = clock();
-  // print (A, n, "Input");
+  print (A, n, "Input");
   quick_sort (A, 0, n-1);
-  // print (A, n, "Sorted");
+  print (A, n, "Sorted");
   end = clock();
   elapsed_time = (end - start)/(double)CLOCKS_PER_SEC;
   printf("Running time: %.2f\n", elapsed_time);
