@@ -9,6 +9,7 @@ void counting_sort (int *A, int n, int range) {
   int *C = (int *)malloc((range+1) * sizeof(int)); /*contador*/
 
   /*Terminar*/
+  // atribui valor 0 para todas
   for(i=0;i<range;i++){
     C[i]=0;
   }
