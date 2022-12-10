@@ -21,15 +21,13 @@ void insertion_sort (int *A, int n) {
 		for(j = i; j > 0; j--){
 			printf("A[j]: %d\n", A[j]);
 			printf("comparando: A[key]-> %d ---- A[j-1]:%d\n", A[key], A[j-1]);
-			if(A[key] < A[j-1]){
-				printf("trocando... \n");
-				swap(A, key, j-1);
-				key = j-1;
-				print(A, n, "");
-			}
-			else{
+			if(A[key] >= A[j-1]){
 				break;
 			}
+			printf("trocando... \n");
+			swap(A, key, j-1);
+			key = j-1;
+			print(A, n, "");
 		}
 	} 
 }
