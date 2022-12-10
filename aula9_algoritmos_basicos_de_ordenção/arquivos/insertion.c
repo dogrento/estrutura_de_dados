@@ -4,16 +4,34 @@
 void insertion_sort (int *A, int n) {
   /*Terminar*/	
   int i, j, key;
-  for(i=1; i<n; i++){
-    key = A[i];
-    j =i-1;
+ // for(i=1; i<n; i++){
+ //   key = A[i];
+ //   j =i-1;
 
-    while(j>= 0 && A[j] > key){
-      A[j+1] = A[j];
-      j--;
-    }
-    A[j+1] = key;
-  }
+ //   while(j>= 0 && A[j] > key){
+ //     A[j+1] = A[j];
+ //     j--;
+ //   }
+ //   A[j+1] = key;
+ // }
+	for(i = 1; i < n; i++){
+		printf("-----entrando no for-----\n");
+		key = i;
+		printf("key: %d\n", A[key]);
+		for(j = i; j > 0; j--){
+			printf("A[j]: %d\n", A[j]);
+			printf("comparando: A[key]-> %d ---- A[j-1]:%d\n", A[key], A[j-1]);
+			if(A[key] < A[j-1]){
+				printf("trocando... \n");
+				swap(A, key, j-1);
+				key = j-1;
+				print(A, n, "");
+			}
+			else{
+				break;
+			}
+		}
+	} 
 }
 
 /* */
