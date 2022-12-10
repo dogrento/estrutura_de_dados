@@ -3,19 +3,36 @@
 /* */
 void selection_sort (int *A, int n) {
   /*Terminar*/	
-  int position, i, j;
+  int min, i, j;
   if(n==1)
     return;
-  for(i=0; i<n-1;i++){
-    position = i;
-    for(j=i+1;j<n;j++){
-      if(A[position]>A[j]){
-        position = j;
-      }
-    }
-    if(position!=i){
-      swap(A,position,i);
-    }
+  //for(i=0; i<n-1;i++){
+  //  position = i;
+  //  for(j=i+1;j<n;j++){
+  //    if(A[position]>A[j]){
+  //      position = j;
+  //    }
+  //  }
+  //  if(position!=i){
+  //    swap(A,position,i);
+  //  }
+  //}
+  for(i=0; i<n;i++){
+	  printf("-----entrando no for------\n");
+	  min = i;
+	  for(j=i+1; j < n; j++){
+		  printf("comparando min: %d --- atual:%d\n", A[min], A[j]);
+		  if(A[min] > A[j]){
+		  	min = j;
+			printf("definindo novo min... %d\n", A[min]);  
+		  }
+	  }
+	  printf("min: %d\n", A[min]);
+	  if(min!=i){
+		printf("trocando...\n");  
+	  	swap(A, min, i);
+	  }
+	  print(A, n, "");
   }
 }
 

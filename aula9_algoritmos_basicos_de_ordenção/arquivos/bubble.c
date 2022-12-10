@@ -3,9 +3,10 @@
 /* */
 void bubble_sort (int *A, int n) {
   /*Terminar*/	
-  int aux;
+  int troca = 0;
   if(n==1)
     return;
+  //int aux;
   // // ordenando utilizando funções fornecidas pelo utils.h
   // while(!check(A, n, TRUE)){
   //   for(int i=0; i<n; i++){
@@ -16,16 +17,32 @@ void bubble_sort (int *A, int n) {
   // }  
 
   // ordenando de um jeito cru
+  //for(int i = 0; i < n; i++){
+  //  for(int j = 0; j< n-1; j++){
+  //    if(A[j]>A[j+1]){
+  //      // algoritmo de troca simples
+  //      aux = A[j];
+  //      A[j]=A[j+1];
+  //      A[j+1]=aux;
+  //    }
+  //  }
+  //}
   for(int i = 0; i < n; i++){
-    for(int j = 0; j< n-1; j++){
-      if(A[j]>A[j+1]){
-        // algoritmo de troca simples
-        aux = A[j];
-        A[j]=A[j+1];
-        A[j+1]=aux;
-      }
-    }
+	printf("------entrando no for: %d -----\n", i);
+  	printf("i: %d\n", i);
+  	printf("n-i-1: %d\n", n-i-1);
+	printf("\n");
+	for(int j = 0; j < n-i-1; j++){
+  		printf("j: %d\n", j);
+		printf("Comparando elemento %d --- %d\n", A[j], A[j+1]);
+		if(A[j] > A[j+1]){
+			troca++;
+			swap(A, j, j + 1);
+			print(A, n, "troca");
+		}
+	}
   }
+  printf("Houve %d trocas.\n", troca);
 }
 
 /* */
@@ -50,9 +67,9 @@ int main (int argc, char *argv[]) {
   }  
 
   start = clock();
-  // print (A, n, "Input");
+  print (A, n, "Input");
   bubble_sort (A, n);
-  // print (A, n, "Sorted");
+  print (A, n, "Sorted");
   end = clock();
   elapsed_time = (end - start)/(double)CLOCKS_PER_SEC;
   printf("Running time: %.2f\n", elapsed_time);
