@@ -9,21 +9,33 @@ void counting_sort (int *A, int n, int range) {
   int *C = (int *)malloc((range+1) * sizeof(int)); /*contador*/
 
   /*Terminar*/
+  printf("%d\n", n);
   // atribui valor 0 para todas
   for(i=0;i<range;i++){
     C[i]=0;
   }
 
-  for(j=0; j<n-1; j++)
+  print(C, range, "C");
+
+  for(j=0; j<n; j++)
     C[A[j]] = C[A[j]]+1;
+
+  print(C, range, "C");
 
   for(i=1;i<range;i++)
     C[i] = C[i] + C[i -1];
+  print(C, range, "C");
 
   for(j=n-1; j>=0; j--){
     T[C[A[j]]-1] = A[j];
     C[A[j]] = C[A[j]]-1;
   }
+  print(T, range, "T");
+
+  for(i=0; i<n-1; i++){
+  	A[i] = T[i];
+  }
+  printf("\n");
   
   /*Desalocando vetores auxiliares: */
   free (T);
@@ -44,7 +56,7 @@ int main (int argc, char *argv[]) {
 
   int i;
   int n = atoi(argv[1]);;
-  int range = 100; /*intervalo de valores sorteados*/
+  int range = 1000; /*intervalo de valores sorteados*/
   int *A = (int *)malloc(n * sizeof(int));
 
   for (i = 0; i < n; i++) {
