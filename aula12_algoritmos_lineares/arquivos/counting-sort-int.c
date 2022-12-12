@@ -15,8 +15,6 @@ void counting_sort (int *A, int n, int range) {
     C[i]=0;
   }
 
-  print(C, range, "C");
-
   for(j=0; j<n; j++)
     C[A[j]] = C[A[j]]+1;
 
@@ -32,9 +30,10 @@ void counting_sort (int *A, int n, int range) {
   }
   print(T, range, "T");
 
-  for(i=0; i<n-1; i++){
+  for(i=0; i<n; i++){
   	A[i] = T[i];
   }
+  print(A, range, "A");
   printf("\n");
   
   /*Desalocando vetores auxiliares: */
