@@ -20,7 +20,24 @@ void radix_sort (int *A, int n, int range) {
   int digit;
   int digit_range = 9; /*números de 0 a 9 (para inteiros)*/
   /*Terminar*/
-}
+  for(int i = 0; i<n; i++){
+	  digit = A[i]%10;
+          int min = digit;
+          for(int j=i+1; j < n; j++){
+		  printf("entrando no loop interno...\n");
+		  printf("%d\n", min);
+		  printf("%d\n", A[j]%10);
+                  if(min > A[j]%10){
+                        min = A[j]%10;
+                  }
+          }
+          if(min!=A[i]%10){
+                //swap(A, min, i);
+		printf("entrei nessa porra de if\n");
+          }
+          print(A, n, "");
+  }
+  }
 
 /* */
 int main (int argc, char *argv[]) {
